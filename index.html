@@ -3,33 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scrolling Background</title>
+    <title>Sectioned Background</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="header">
       <h1>My Header</h1>
     </header>
-    <img
-      src="assets/image/website-bg.png"
-      alt="Background Image"
-      class="background-image"
-    />
-    <div class="content">
-      <!-- Section 1 (aligned with the first 432px section of the background) -->
-      <div class="section section1">
-        <a href="https://your-itch-link1.com" class="link">Game 1</a>
-      </div>
 
-      <!-- Section 2 (aligned with the second 432px section of the background) -->
-      <div class="section section2">
-        <a href="https://your-itch-link2.com" class="link">Game 2</a>
-      </div>
+    <div class="background-wrapper">
+      <img
+        src="assets/image/website-bg.png"
+        alt="Background Image"
+        class="background-image"
+      />
+      <div class="content">
+        <!-- Section 0 (HEADER) -->
+        <div class="section section0">
+          <a href="https://your-itch-link1.com" class="link">Header</a>
+        </div>
 
-      <!-- Section 3 (aligned with the third 432px section of the background) -->
-      <div class="section section3">
-        <a href="https://your-itch-link3.com" class="link">Game 3</a>
+        <!-- Section 1 (SUNTOWER) -->
+        <div class="section section1">
+          <a href="https://your-itch-link2.com" class="link">Suntower</a>
+        </div>
+
+        <!-- Section 1 (NULLIFY) -->
+        <div class="section section2">
+          <a href="https://your-itch-link3.com" class="link">Nullify Light</a>
+        </div>
+
+        <!-- Section 1 (FINAL FARM) -->
+        <div class="section section3">
+          <a href="https://your-itch-link3.com" class="link">Final Farm</a>
+        </div>
+
+        <!-- Section 1 (SCALE MAIL) -->
+        <div class="section section4">
+          <a href="https://your-itch-link3.com" class="link">Scale Mail</a>
+        </div>
+
+        <!-- Section 1 (FOOTER) -->
+        <div class="section section5">
+          <a href="https://your-itch-link3.com" class="link">Contact Me</a>
+        </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

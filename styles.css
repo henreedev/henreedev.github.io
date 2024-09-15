@@ -23,6 +23,11 @@ body {
   z-index: 1000; /* Ensure the header is above other content */
 }
 
+.background-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .background-image {
   /* position: fixed; */
   top: 0;
@@ -31,15 +36,56 @@ body {
   height: auto; /* Allow height to adjust based on content */
   z-index: -1; /* Keep the background behind content and header */
   object-fit: cover; /* Scale the image to cover the container while maintaining aspect ratio */
+  display: block;
   image-rendering: -webkit-optimize-contrast; /* For WebKit browsers */
   image-rendering: crisp-edges; /* For better quality scaling */
   image-rendering: pixelated; /* If using pixel art */
 }
 
 .content {
-  position: relative;
-  padding-top: 60px; /* Adjust padding to account for the fixed header */
-  color: #fff; /* Adjust text color for readability on the background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.section {
+  position: absolute;
+  width: 100%;
+  height: 432px; /* Section height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: white; */
+  text-align: left;
+}
+
+.section0 {
+  top: 0;
+}
+
+.section1 {
+  top: calc(432px * 1 * var(--scale-factor));
+}
+
+.section2 {
+  top: calc(432px * 2 * var(--scale-factor));
+}
+
+.section3 {
+  top: calc(432px * 3 * var(--scale-factor));
+}
+
+.section4 {
+  top: calc(432px * 4 * var(--scale-factor));
+}
+
+.section5 {
+  top: calc(432px * 5 * var(--scale-factor));
+}
+
+.section6 {
+  top: calc(432px * 6 * var(--scale-factor));
 }
 
 @font-face {
@@ -47,4 +93,10 @@ body {
   src: url("assets/font/pixel.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
 }
