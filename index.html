@@ -3,19 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Scrolling Background</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Welcome to My Portfolio</h1>
+    <header class="header">
+      <h1>My Header</h1>
     </header>
-    <section>
-      <h2>Games</h2>
-      <ul>
-        <li><a href="https://mygame.itch.io" target="_blank">Game 1</a></li>
-        <li><a href="https://mygame2.itch.io" target="_blank">Game 2</a></li>
-      </ul>
-    </section>
+    <img
+      src="assets/image/website-bg.png"
+      alt="Background Image"
+      class="background-image"
+    />
+    <div class="content">
+      <!-- Section 1 (aligned with the first 432px section of the background) -->
+      <div class="section section1">
+        <a href="https://your-itch-link1.com" class="link">Game 1</a>
+      </div>
+
+      <!-- Section 2 (aligned with the second 432px section of the background) -->
+      <div class="section section2">
+        <a href="https://your-itch-link2.com" class="link">Game 2</a>
+      </div>
+
+      <!-- Section 3 (aligned with the third 432px section of the background) -->
+      <div class="section section3">
+        <a href="https://your-itch-link3.com" class="link">Game 3</a>
+      </div>
+    </div>
   </body>
 </html>
