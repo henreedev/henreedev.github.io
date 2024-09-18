@@ -181,8 +181,9 @@ body::-webkit-scrollbar-corner {
 /* Container for the game info */
 .game-info-container {
   display: flex;
-  align-items: flex-end; /* Ensures the children stretch to fill the container height */
+  align-items: flex-start; /* Ensures the children stretch to fill the container height */
   padding: 20px;
+  padding-top: 15%;
   height: 100%;
   box-sizing: border-box;
   flex-direction: column;
@@ -202,7 +203,7 @@ body::-webkit-scrollbar-corner {
 
 /* Left box for game title, link, and stats */
 .game-info-left {
-  transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+  transition: opacity 0.5s ease 1s, transform 0.5s ease 1s;
   width: 30%;
   margin-right: 20px; /* Padding between left and right boxes */
   display: flex;
@@ -234,7 +235,7 @@ body::-webkit-scrollbar-corner {
 
 /* Right box for game description and features */
 .game-info-right {
-  transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s; /* 0.5s delay */
+  transition: opacity 0.5s ease 2s, transform 0.5s ease 2s; /* 0.5s delay */
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
@@ -244,7 +245,7 @@ body::-webkit-scrollbar-corner {
 
 .game-info-left h2 {
   font-size: 60px;
-  /* margin-bottom: 10px; */
+  margin-bottom: 20px;
 }
 
 .game-info-left .itch-link {

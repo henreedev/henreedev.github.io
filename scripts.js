@@ -52,8 +52,8 @@ function checkScrollPosition() {
     gamesSection.offsetTop + gamesSection.offsetHeight + 1;
   const currentScroll = Math.floor(window.scrollY + window.innerHeight);
   if (
-    currentScroll >= gamesSectionHeight + 200 ||
-    currentScroll <= gamesSectionHeight - 200
+    currentScroll >= gamesSectionHeight + 600 ||
+    currentScroll <= gamesSectionHeight - 600
   ) {
     selectThisGame(null, false); // Deselect if scrolling away
   }
