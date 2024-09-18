@@ -3,52 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sectioned Background</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="header">
-      <h1>My Header</h1>
+    <!-- Greeting and Info Section -->
+    <header class="greeting-section">
+      <h1>henreedev</h1>
+      <p>
+        Hi, I'm Henry Earnest, a game developer. Here's a collection of my work.
+      </p>
     </header>
 
-    <div class="background-wrapper">
-      <img
-        src="assets/image/website-bg.png"
-        alt="Background Image"
-        class="background-image"
-      />
-      <div class="content">
-        <!-- Section 0 (HEADER) -->
-        <div class="section section0">
-          <a href="https://your-itch-link1.com" class="link">Header</a>
+    <!-- Games Section -->
+    <section class="games-section">
+      <div class="game-grid">
+        <div class="game-icon" data-index="0">
+          <img src="assets/image/scalemail-splash.png" alt="Scale Mail" />
         </div>
-
-        <!-- Section 1 (SUNTOWER) -->
-        <div class="section section1">
-          <a href="https://your-itch-link2.com" class="link">Suntower</a>
+        <div class="game-icon" data-index="1">
+          <img src="assets/image/suntower-icon.png" alt="Suntower" />
         </div>
-
-        <!-- Section 1 (NULLIFY) -->
-        <div class="section section2">
-          <a href="https://your-itch-link3.com" class="link">Nullify Light</a>
+        <div class="game-icon" data-index="2">
+          <img src="assets/image/nullify-icon.png" alt="Nullify Light" />
         </div>
-
-        <!-- Section 1 (FINAL FARM) -->
-        <div class="section section3">
-          <a href="https://your-itch-link3.com" class="link">Final Farm</a>
+        <div class="game-icon" data-index="3">
+          <img src="assets/image/kanjoumeisou-splash.png" alt="Kanjou Meisou" />
         </div>
-
-        <!-- Section 1 (SCALE MAIL) -->
-        <div class="section section4">
-          <a href="https://your-itch-link3.com" class="link">Scale Mail</a>
+        <div class="game-icon" data-index="4">
+          <img src="assets/image/finalfarm-splash.png" alt="Final Farm" />
         </div>
+        <!-- Add more game icons as needed -->
+      </div>
 
-        <!-- Section 1 (FOOTER) -->
-        <div class="section section5">
-          <a href="https://your-itch-link3.com" class="link">Contact Me</a>
+      <!-- Game Details with Splash Background and Text Content -->
+      <div class="game-details" id="game-0">
+        <div
+          class="splash-background"
+          style="background-image: url('assets/image/scalemail-splash.png')"
+        ></div>
+        <div class="game-info">
+          <h2>Scale Mail</h2>
+          <p>Description of Game 1.</p>
         </div>
       </div>
-    </div>
-    <script src="script.js"></script>
+
+      <div class="game-details" id="game-1">
+        <div
+          class="splash-background"
+          style="background-image: url('assets/image/suntower-splash.png')"
+        ></div>
+        <div class="game-info">
+          <h2>Suntower</h2>
+          <p>Description of Game 2.</p>
+        </div>
+      </div>
+
+      <div class="game-details" id="game-2">
+        <div
+          class="splash-background"
+          style="background-image: url('assets/image/nullify-splash.png')"
+        ></div>
+        <div class="game-info">
+          <h2>Nullify Light</h2>
+          <p>
+            Description of Game 3. Skibidi Skibidi Skibidi Skibidi Skibidi
+            Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi
+            Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi
+            Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi
+            Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi
+            Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi
+            Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi
+            Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi Skibidi
+          </p>
+        </div>
+      </div>
+
+      <div class="game-details" id="game-3">
+        <div
+          class="splash-background"
+          style="background-image: url('assets/image/kanjoumeisou-splash.png')"
+        ></div>
+        <div class="game-info">
+          <h2>Kanjou Meisou (Emotional Meditation)</h2>
+          <p>Description of Game 4.</p>
+        </div>
+      </div>
+
+      <div class="game-details" id="game-4">
+        <div
+          class="splash-background"
+          style="background-image: url('assets/image/finalfarm-splash.png')"
+        ></div>
+        <div class="game-info">
+          <h2>Final Farm</h2>
+          <p>Description of Game 5.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section for Contact -->
+    <footer class="contact-footer">
+      <p>Contact me at: [Your Email]</p>
+    </footer>
+
+    <script src="scripts.js"></script>
   </body>
 </html>
