@@ -44,18 +44,52 @@ body::-webkit-scrollbar-corner {
 /* Greeting section */
 .greeting-section {
   text-align: center;
-  padding: 40px;
+  padding: 30px;
   background-color: #333;
   color: whitesmoke;
 }
 
-.greeting-section h1 {
-  font-size: 2.5rem;
+/* Full-screen header */
+.full-screen-header {
+  background-color: #333;
+  color: whitesmoke;
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  background-image: url("assets/image/header-bg.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.greeting-section p {
+/* Header content styling */
+.header-content {
+  text-align: center;
+  color: whitesmoke;
+  z-index: 1; /* Ensure content is above background and arrow */
+}
+
+.header-content p {
   font-size: 1.2rem;
   margin-top: 10px;
+}
+
+.header-content h1 {
+  font-size: 5rem;
+}
+
+/* Arrow gif at the bottom center */
+.scroll-arrow {
+  position: absolute;
+  bottom: 0px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%); /* Center the arrow horizontally */
+  width: 25%; /* Adjust size as needed */
+  z-index: 1; /* Ensure the arrow is visible */
+  cursor: pointer;
 }
 
 /* Games section */
@@ -78,6 +112,10 @@ body::-webkit-scrollbar-corner {
   display: flex;
   justify-content: center;
   gap: 20px;
+  background-image: url("assets/image/game-icon-grid-bg.png");
+  background-size: contain;
+  padding: 10px;
+  z-index: 2;
 }
 
 .game-icon {
@@ -92,7 +130,6 @@ body::-webkit-scrollbar-corner {
   justify-content: center;
   cursor: pointer;
   transition: transform 0.3s ease;
-  z-index: 2;
 }
 
 .game-icon:hover {
@@ -126,12 +163,115 @@ body::-webkit-scrollbar-corner {
   transition: opacity 0.5s ease, visibility 0s ease 0s; /* No delay for visibility */
 }
 
+/* Fade-in and slide-in when game-details is active */
+.game-details.active .game-info-left,
+.game-details.active .game-info-right {
+  opacity: 1;
+  transform: translateX(0); /* Slide to its original position */
+}
+
 /* Fade-out state */
 .game-details.fade-out {
   opacity: 0;
   visibility: hidden;
   z-index: 0;
   transition: opacity 0.5s ease 0.5s, visibility 0s ease 1s; /* Delay visibility change */
+}
+
+/* Container for the game info */
+.game-info-container {
+  display: flex;
+  align-items: flex-end; /* Ensures the children stretch to fill the container height */
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+.game-info-left,
+.game-info-right {
+  background-image: url("assets/image/diagonal-pattern.png"); /* Replace with your background image */
+  background-size: 100px;
+  background-position: center;
+  padding: 20px;
+  color: whitesmoke;
+  box-sizing: border-box;
+  text-align: left;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+/* Left box for game title, link, and stats */
+.game-info-left {
+  transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+  width: 30%;
+  margin-right: 20px; /* Padding between left and right boxes */
+  display: flex;
+  flex-direction: column; /* Vertical arrangement of items */
+  justify-content: space-between; /* Title/stats at the top, icons at the bottom */
+  height: 100%; /* Stretch to fill the container */
+}
+
+/* Icons container at the bottom */
+.icons-container {
+  display: flex;
+  justify-content: center; /* Center icons horizontally */
+  gap: 20px; /* Space between icons */
+  margin-top: 20px; /* Add some space between paragraph and icons */
+}
+
+/* Individual icons styling */
+.icon-link {
+  display: block;
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+}
+
+.icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure images maintain aspect ratio */
+}
+
+/* Right box for game description and features */
+.game-info-right {
+  transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s; /* 0.5s delay */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+  align-self: flex-end; /* Attach to the bottom */
+}
+
+.game-info-left h2 {
+  font-size: 60px;
+  /* margin-bottom: 10px; */
+}
+
+.game-info-left .itch-link {
+  font-size: 14px;
+  color: lightblue;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.game-info-left p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.game-info-right p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.game-info-right ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.game-info-right ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 /* Splash background styling */
@@ -158,7 +298,7 @@ body::-webkit-scrollbar-corner {
   background-color: #333;
   color: whitesmoke;
   text-align: center;
-  padding: 20px;
+  padding: 50px;
   font-size: 1.1rem;
 }
 

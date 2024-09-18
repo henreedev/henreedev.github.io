@@ -3,23 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>henreedev | Game Developer</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- Greeting and Info Section -->
-    <header class="greeting-section">
-      <h1>henreedev</h1>
-      <p>
-        Hi, I'm Henry Earnest, a game developer. Here's a collection of my work.
-      </p>
+    <header class="full-screen-header">
+      <div class="header-content">
+        <h1>henreedev</h1>
+        <p>I am me me is me i am i</p>
+      </div>
+      <img
+        src="assets/video/header-arrow.gif"
+        alt="Scroll down"
+        class="scroll-arrow"
+      />
     </header>
 
     <!-- Games Section -->
     <section class="games-section">
       <div class="game-grid">
         <div class="game-icon" data-index="0">
-          <img src="assets/image/scalemail-splash.png" alt="Scale Mail" />
+          <img src="assets/image/scalemail-icon.png" alt="Scale Mail" />
         </div>
         <div class="game-icon" data-index="1">
           <img src="assets/image/suntower-icon.png" alt="Suntower" />
@@ -28,10 +33,10 @@
           <img src="assets/image/nullify-icon.png" alt="Nullify Light" />
         </div>
         <div class="game-icon" data-index="3">
-          <img src="assets/image/kanjoumeisou-splash.png" alt="Kanjou Meisou" />
+          <img src="assets/image/kanjoumeisou-icon.png" alt="Kanjou Meisou" />
         </div>
         <div class="game-icon" data-index="4">
-          <img src="assets/image/finalfarm-splash.png" alt="Final Farm" />
+          <img src="assets/image/finalfarm-icon.png" alt="Final Farm" />
         </div>
         <!-- Add more game icons as needed -->
       </div>
@@ -43,8 +48,50 @@
           style="background-image: url('assets/image/scalemail-splash.png')"
         ></div>
         <div class="game-info">
-          <h2>Scale Mail</h2>
-          <p>Description of Game 1.</p>
+          <div class="game-info-container">
+            <!-- Left box for game title, link, and stats -->
+            <div class="game-info-left">
+              <h2>Game Title</h2>
+              <a href="https://itch.io" target="_blank" class="itch-link"
+                >Play on Itch.io</a
+              >
+              <p>Created: June 2023</p>
+              <p>Status: In Development</p>
+              <p>Genre: Puzzle</p>
+              <p>Stats: 500 Downloads</p>
+              <!-- Icons container -->
+              <div class="icons-container">
+                <a href="https://itch.io" target="_blank" class="icon-link">
+                  <img
+                    src="assets/image/itchio-icon.png"
+                    alt="Itch.io"
+                    class="icon-image"
+                  />
+                </a>
+                <a href="https://github.com" target="_blank" class="icon-link">
+                  <img
+                    src="assets/image/github-icon.png"
+                    alt="GitHub"
+                    class="icon-image"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Right box for game description and features -->
+            <div class="game-info-right">
+              <p>
+                This game is an exciting puzzle adventure where you solve
+                increasingly difficult challenges to progress through the story.
+              </p>
+              <ul>
+                <li>Implemented an innovative AI system</li>
+                <li>Designed a multi-level progression mechanic</li>
+                <li>Integrated a physics-based puzzle system</li>
+                <li>Developed using Godot engine</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
