@@ -3,8 +3,15 @@ const gameDetails = document.querySelectorAll(".game-details");
 
 gameIcons.forEach((icon) => {
   icon.addEventListener("click", () => {
-    scrollToGamesSection();
+    selectThisGame(icon);
+  });
+});
 
+function selectThisGame(icon, shouldScroll = true) {
+  if (shouldScroll) {
+    scrollToGamesSection();
+  }
+  if (icon) {
     const index = icon.getAttribute("data-index");
     const newActive = document.getElementById(`game-${index}`);
 
@@ -23,8 +30,19 @@ gameIcons.forEach((icon) => {
     // Activate new game details
     newActive.classList.remove("fade-out");
     newActive.classList.add("active");
-  });
-});
+  } else {
+    const currentActive = document.querySelector(".game-details.active");
+    if (currentActive) {
+      currentActive.classList.add("fade-out");
+      currentActive.classList.remove("active");
+
+      // After fade-out, hide the previous game
+      setTimeout(() => {
+        currentActive.classList.remove("fade-out");
+      }, 500); // Match with CSS transition time
+    }
+  }
+}
 
 function scrollToGamesSection() {
   const gamesSection = document.querySelector(".games-section");
@@ -36,31 +54,24 @@ function scrollToGamesSection() {
   });
 }
 
-var hidingScroll = false;
+var atGamesHeight = false;
 
 function checkScrollPosition() {
-  console.log("scrolling");
+  if (atGamesHeight) {
+    selectThisGame(null, false); // Deselect if scrolling away
+  }
   const gamesSection = document.querySelector(".games-section");
   const gamesSectionHeight =
     gamesSection.offsetTop + gamesSection.offsetHeight + 1;
   const currentScroll = Math.floor(window.scrollY + window.innerHeight);
-
-  if (currentScroll == gamesSectionHeight && !hidingScroll) {
-    hideScrollbar();
-  } else {
-    showScrollbar();
+  if (currentScroll == gamesSectionHeight && !atGamesHeight) {
+    setTimeout(() => {
+      atGamesHeight = true;
+    }, 50);
+  } else if (currentScroll != gamesSectionHeight) {
+    atGamesHeight = false;
   }
-  console.log(currentScroll, gamesSectionHeight);
-}
-
-function hideScrollbar() {
-  document.body.classList.add("hide-scrollbar"); // Hide the scrollbar
-  hidingScroll = true;
-}
-
-function showScrollbar() {
-  document.body.classList.remove("hide-scrollbar"); // Show the scrollbar
-  hidingScroll = false;
+  console.log(atGamesHeight);
 }
 
 // Add event listener to track scrolling
