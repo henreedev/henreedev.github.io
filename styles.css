@@ -9,7 +9,7 @@
 body {
   font-family: "PixelFont", sans-serif;
   background-color: #f4f4f4;
-  color: #333;
+  color: #333333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -64,7 +64,9 @@ body::-webkit-scrollbar-corner {
   min-height: 100vh; /* Ensures the section is at least one screen height */
   padding: 40px;
   text-align: center;
-  background-color: #e9e9e9;
+  /* background-color: whitesmoke; */
+  background-image: url("assets/video/empty-games-section-bg-dark.gif");
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,30 +115,21 @@ body::-webkit-scrollbar-corner {
   opacity: 0;
   visibility: hidden;
   z-index: 0;
-  transition: opacity 0.5s ease, mask-position 0.5s ease;
-  mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 100%,
-    rgba(0, 0, 0, 0) 0%
-  );
-  mask-position: 0 0;
-  mask-size: 200%;
+  transition: opacity 0.5s ease;
 }
 
 /* Active state for wave fade-in */
 .game-details.active {
   opacity: 1;
   visibility: visible;
-  mask-position: 100% 0;
   z-index: 1;
 }
 
 /* Fade-out state */
 .game-details.fade-out {
-  /* opacity: 0; */
-  mask-position: 0 0;
-  /* visibility: hidden; */
-  z-index: 0;
+  opacity: 1;
+  visibility: hidden;
+  z-index: 1;
 }
 
 /* Splash background styling */

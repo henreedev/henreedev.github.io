@@ -11,8 +11,8 @@ gameIcons.forEach((icon) => {
     // Remove active class from currently visible game
     const currentActive = document.querySelector(".game-details.active");
     if (currentActive) {
-      currentActive.classList.remove("active");
       currentActive.classList.add("fade-out");
+      currentActive.classList.remove("active");
 
       // After fade-out, hide the previous game
       setTimeout(() => {
@@ -21,6 +21,7 @@ gameIcons.forEach((icon) => {
     }
 
     // Activate new game details
+    newActive.classList.remove("fade-out");
     newActive.classList.add("active");
   });
 });
