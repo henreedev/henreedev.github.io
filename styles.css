@@ -125,8 +125,8 @@ body::-webkit-scrollbar-corner {
   /* border-radius: 10%; */
   background-image: url("assets/image/game-icon-frame2.png");
   background-size: cover;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +135,7 @@ body::-webkit-scrollbar-corner {
 }
 
 .game-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.066);
 }
 
 .game-icon img {
