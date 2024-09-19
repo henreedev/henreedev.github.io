@@ -41,14 +41,6 @@ body::-webkit-scrollbar-corner {
   background-color: #f5f5f5; /* Match the track background */
 }
 
-/* Greeting section */
-.greeting-section {
-  text-align: center;
-  padding: 30px;
-  background-color: #333;
-  color: whitesmoke;
-}
-
 /* Full-screen header */
 .full-screen-header {
   background-color: #333;
@@ -70,15 +62,25 @@ body::-webkit-scrollbar-corner {
   text-align: center;
   color: whitesmoke;
   z-index: 1; /* Ensure content is above background and arrow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ensure it stretches to the full width of the header */
 }
 
+/* Adjustments for p and h1 elements */
 .header-content p {
   font-size: 1.2rem;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .header-content h1 {
   font-size: 5rem;
+  min-height: 5rem; /* Ensure the height is retained even if the text is empty */
+  line-height: 5rem; /* Aligns any text vertically */
+  white-space: nowrap; /* Prevent text wrapping */
+  /* overflow: hidden; Ensure the text does not overflow */
+  display: inline-block; /* Allows the element to shrink to fit its content */
 }
 
 /* Arrow gif at the bottom center */
@@ -233,6 +235,51 @@ body::-webkit-scrollbar-corner {
   object-fit: contain; /* Ensure images maintain aspect ratio */
 }
 
+.icon-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: relative; /* For tooltip positioning */
+}
+
+.icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Disabled state */
+.icon-link[data-disabled="true"] {
+  /* pointer-events: none; Makes it unclickable */
+  cursor: not-allowed; /* Error cursor */
+  opacity: 0.7;
+}
+.tooltip {
+  transition: opacity 0.3s ease;
+}
+/* Tooltip styling */
+.icon-link[data-disabled="true"] .tooltip {
+  pointer-events: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.icon-link[data-disabled="true"]:hover .tooltip {
+  display: block;
+  opacity: 1;
+}
+
 /* Right box for game description and features */
 .game-info-right {
   transition: opacity 0.5s ease 2s, transform 0.5s ease 2s; /* 0.5s delay */
@@ -245,13 +292,6 @@ body::-webkit-scrollbar-corner {
 
 .game-info-left h2 {
   font-size: 60px;
-  margin-bottom: 20px;
-}
-
-.game-info-left .itch-link {
-  font-size: 14px;
-  color: lightblue;
-  text-decoration: none;
   margin-bottom: 20px;
 }
 
@@ -308,4 +348,25 @@ body::-webkit-scrollbar-corner {
   src: url("assets/font/pixel.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+}
+
+.typing-cursor {
+  white-space: nowrap;
+  border-right: 7px solid;
+}
+
+.blinking {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0% {
+    border-right-color: whitesmoke; /* Initial color */
+  }
+  50% {
+    border-right-color: transparent; /* Color at halfway point */
+  }
+  100% {
+    border-right-color: whitesmoke; /* Final color to complete the blink */
+  }
 }

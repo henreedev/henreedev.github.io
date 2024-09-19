@@ -59,6 +59,58 @@ function checkScrollPosition() {
   }
 }
 
+// TYPING STUFF
+
+const texts = ["henreedev", "Henry Earnest"];
+let currentTextIndex = 0;
+let typingSpeed = 100; // Typing speed in ms
+let waitingTime = 4000; // Time to wait after typing and before deleting
+let element = document.getElementById("cycling-text");
+
+function typeText(text, callback) {
+  let index = 0;
+  element.classList.remove("blinking"); // Disable blinking while typing
+
+  const typingInterval = setInterval(() => {
+    if (index < text.length) {
+      element.textContent += text.charAt(index);
+      index++;
+    } else {
+      clearInterval(typingInterval);
+      element.classList.add("blinking");
+      setTimeout(callback, waitingTime); // Wait before deleting
+    }
+  }, typingSpeed);
+}
+
+function deleteText(callback) {
+  let text = element.textContent;
+  element.classList.remove("blinking"); // Disable blinking while deleting
+
+  const deletingInterval = setInterval(() => {
+    if (text.length > 0) {
+      text = text.slice(0, -1);
+      element.textContent = text;
+    } else {
+      clearInterval(deletingInterval);
+      element.classList.add("blinking"); // Add blinking after deleting
+      setTimeout(callback, 400); // Wait a bit before typing the next string
+    }
+  }, typingSpeed / 1.3); // Speed up the deletion
+}
+
+function cycleTexts() {
+  typeText(texts[currentTextIndex], () => {
+    deleteText(() => {
+      currentTextIndex = (currentTextIndex + 1) % texts.length; // Cycle through texts
+      cycleTexts(); // Repeat the cycle
+    });
+  });
+}
+
+// Start the cycle
+cycleTexts();
+
 // Add event listener to track scrolling
 window.addEventListener("scroll", checkScrollPosition);
 
