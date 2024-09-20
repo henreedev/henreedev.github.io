@@ -366,27 +366,153 @@ body::-webkit-scrollbar-corner {
   color: #fff;
 }
 
-/* Footer */
+/* General Footer Styling */
 .contact-footer {
-  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: whitesmoke;
   position: relative;
   height: 100vh; /* Full viewport height */
   width: 100%;
+  background-color: #333;
   background-image: url("assets/image/footer-bg.png");
   background-size: cover;
   background-position: center;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Section 1: "About Me" */
+.contact-footer h1 {
+  font-size: 5rem;
+  margin-top: 0px;
+  position: absolute;
+  top: 5%;
+}
+
+/* Section 2: Two-column layout */
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* max-width: 1200px; Limit the total width */
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* Left Column */
+.left-column {
+  width: 50%;
+  text-align: left;
+  border-left: whitesmoke solid 5px;
+  padding-left: 20px;
+}
+.left-column p {
+  padding-bottom: 5px;
+}
+
+/* Right Column */
+.right-column {
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  text-align: center;
+}
+
+.right-column a {
+  font-size: 1.5rem;
   color: whitesmoke;
-  z-index: 1; /* Ensure content is above background and arrow */
+  text-decoration: none;
+  border: 2px solid whitesmoke;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.right-column a:hover {
+  background-color: whitesmoke;
+  color: #333;
+}
+
+/* Section 3: Bottom "Contact Me" */
+.contact-section {
   display: flex;
-  flex-direction: column;
+  justify-content: left;
   align-items: center;
-  width: 100%; /* Ensure it stretches to the full width of the header */
+  width: 100%;
+  padding-top: 20px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 6%;
+  left: 0;
+  padding: 0 20px;
+}
+
+.contact-section p {
+  text-align: left;
+  margin: 0;
+  font-size: 40px;
+  border-left: whitesmoke 5px solid;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.contact-icons {
+  padding-top: 5px;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  display: flex;
+  /* gap: 20px; */
+}
+
+.contact-icons a {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease-out;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.contact-icons .tooltip {
+  position: absolute;
+  bottom: 100%; /* Close the gap by moving it directly above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+  color: whitesmoke;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Initially unclickable */
+  z-index: 1; /* Ensure it's above other elements */
+}
+
+.contact-icons a:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto; /* Make tooltip clickable */
+}
+
+.contact-icons a img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Increase the hover area to include the tooltip */
+.contact-icons a:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+}
+
+.contact-icons a {
+  padding-bottom: 10px; /* Increase the clickable area between icon and tooltip */
 }
 
 @font-face {
