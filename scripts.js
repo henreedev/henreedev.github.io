@@ -61,7 +61,7 @@ function checkScrollPosition() {
 
 // TYPING STUFF
 
-const texts = ["henreedev", "Henry Earnest"];
+const texts = ["henree", "Henry Earnest"];
 let currentTextIndex = 0;
 let typingSpeed = 100; // Typing speed in ms
 let waitingTime = 4000; // Time to wait after typing and before deleting
@@ -94,7 +94,7 @@ function deleteText(callback) {
     } else {
       clearInterval(deletingInterval);
       element.classList.add("blinking"); // Add blinking after deleting
-      setTimeout(callback, 400); // Wait a bit before typing the next string
+      setTimeout(callback, 300); // Wait a bit before typing the next string
     }
   }, typingSpeed / 1.3); // Speed up the deletion
 }

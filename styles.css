@@ -172,6 +172,40 @@ body::-webkit-scrollbar-corner {
   transform: translateX(0); /* Slide to its original position */
 }
 
+.game-details.active .game-info-left {
+  transition: opacity 0.5s ease 1s, transform 0.5s ease 1s;
+}
+.game-details.active .game-info-right {
+  transition: opacity 0.5s ease 2s, transform 0.5s ease 2s;
+}
+
+.game-details.active .game-info-bullets-left,
+.game-details.active .game-info-bullets-right {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.1s, transform 0.1s;
+}
+
+.game-info-bullets-left {
+  border-left: whitesmoke solid 5px;
+  padding-left: 10px; /* Creates space between the border and the text */
+}
+
+.game-details.active .game-info-bullets-left {
+  transition: opacity 0.5s ease 1.2s, transform 0.5s ease 1.2s;
+}
+
+.game-details.active .game-info-bullets-right {
+  transition: opacity 0.5s ease 2.2s, transform 0.5s ease 2.2s;
+}
+
+.game-info-bullets-left,
+.game-info-bullets-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;
+}
+
 /* Fade-out state */
 .game-details.fade-out {
   opacity: 0;
@@ -180,15 +214,14 @@ body::-webkit-scrollbar-corner {
   transition: opacity 0.5s ease 0.5s, visibility 0s ease 1s; /* Delay visibility change */
 }
 
-/* Container for the game info */
 .game-info-container {
   display: flex;
-  align-items: flex-start; /* Ensures the children stretch to fill the container height */
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: end; /* Align the entire group to the bottom of the container */
   padding: 20px;
-  padding-top: 15%;
-  height: 100%;
+  height: 100%; /* Full height of the available space */
   box-sizing: border-box;
-  flex-direction: column;
+  justify-self: flex-end;
 }
 .game-info-left,
 .game-info-right {
@@ -201,17 +234,51 @@ body::-webkit-scrollbar-corner {
   text-align: left;
   opacity: 0;
   transform: translateX(-20px);
+  transition: opacity 0.3s ease 0.5s, transform 0.3s ease 0.5s;
 }
 
 /* Left box for game title, link, and stats */
 .game-info-left {
-  transition: opacity 0.5s ease 1s, transform 0.5s ease 1s;
   width: 30%;
   margin-right: 20px; /* Padding between left and right boxes */
   display: flex;
   flex-direction: column; /* Vertical arrangement of items */
   justify-content: space-between; /* Title/stats at the top, icons at the bottom */
   height: 100%; /* Stretch to fill the container */
+}
+
+/* Right box for game description and features */
+.game-info-right {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+  align-self: flex-end; /* Attach to the bottom */
+}
+
+.game-info-left h2 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.game-info-left p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.game-info-right p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.game-info-right ul {
+  list-style-type: square;
+  padding-left: 15px;
+}
+
+.game-info-right ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 /* Icons container at the bottom */
@@ -280,41 +347,6 @@ body::-webkit-scrollbar-corner {
   opacity: 1;
 }
 
-/* Right box for game description and features */
-.game-info-right {
-  transition: opacity 0.5s ease 2s, transform 0.5s ease 2s; /* 0.5s delay */
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: left;
-  align-self: flex-end; /* Attach to the bottom */
-}
-
-.game-info-left h2 {
-  font-size: 60px;
-  margin-bottom: 20px;
-}
-
-.game-info-left p {
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.game-info-right p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.game-info-right ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-.game-info-right ul li {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
 /* Splash background styling */
 .splash-background {
   position: absolute;
@@ -329,8 +361,8 @@ body::-webkit-scrollbar-corner {
 
 .game-info {
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 100%;
+  transform: translateY(-100%);
   color: #fff;
 }
 
@@ -338,9 +370,23 @@ body::-webkit-scrollbar-corner {
 .contact-footer {
   background-color: #333;
   color: whitesmoke;
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  background-image: url("assets/image/footer-bg.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
-  padding: 50px;
-  font-size: 1.1rem;
+  color: whitesmoke;
+  z-index: 1; /* Ensure content is above background and arrow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ensure it stretches to the full width of the header */
 }
 
 @font-face {
