@@ -114,22 +114,41 @@ function applyWaveEffect() {
 
   // Loop through each wave-text element
   waveTextElements.forEach((waveText) => {
-    // Get the text content and split it into individual letters
-    const letters = waveText.textContent.split("");
+    // Get the text content and split it into individual letters, preserving spaces
+    const letters = Array.from(waveText.textContent);
 
     // Clear the original content of the element
     waveText.textContent = "";
 
-    // Wrap each letter in a <span> and append it back to the element
+    // Wrap each letter (including spaces) in a <span> and append it back to the element
     letters.forEach((letter, index) => {
       const span = document.createElement("span");
-      span.textContent = letter;
+      span.textContent = letter === " " ? "\u00A0" : letter; // Use non-breaking space for proper rendering
 
       // Add a delay to each letter to create the wave effect
       span.style.animationDelay = `${index * 0.05}s`;
 
       // Append the span to the container
       waveText.appendChild(span);
+    });
+    var waiting = false;
+    // Add hover listener to add the 'wave-play' class
+    waveText.addEventListener("mouseenter", () => {
+      if (!waiting) {
+        waveText.classList.add("wave-play");
+      }
+    });
+
+    // Add animationend listener to remove the 'wave-play' class after animation finishes
+    const spans = waveText.querySelectorAll("span");
+    spans.forEach((span, index) => {
+      span.addEventListener("animationend", () => {
+        waiting = true;
+        if (index == spans.length - 1) {
+          waveText.classList.remove("wave-play");
+          waiting = false;
+        }
+      });
     });
   });
 }

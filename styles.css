@@ -5,6 +5,18 @@
   box-sizing: border-box;
 }
 
+/* Change the text highlight color */
+::selection {
+  background-color: #ffcc00; /* Background color when text is highlighted */
+  color: #000000; /* Text color when highlighted */
+}
+
+/* For Firefox (optional, but ensures compatibility with older versions) */
+::-moz-selection {
+  background-color: #ffcc00;
+  color: #000000;
+}
+
 /* General body styling */
 body {
   font-family: "PixelFont", sans-serif;
@@ -191,13 +203,21 @@ body::-webkit-scrollbar-corner {
   padding-left: 10px; /* Creates space between the border and the text */
 }
 
+.game-info-bullets-left p {
+  font-size: 16px;
+}
+
 .game-info-bullets-left a {
   color: rgb(203, 200, 238);
 }
 
 .game-info-bullets-left ul {
-  padding-left: 15px;
+  padding-left: 25px;
   list-style-type: square;
+  font-size: 16px;
+}
+.game-info-bullets-left ul li ul {
+  margin-top: 4px;
 }
 
 .game-details.active .game-info-bullets-left {
@@ -280,6 +300,7 @@ body::-webkit-scrollbar-corner {
   box-sizing: border-box;
   text-align: left;
   align-self: flex-end; /* Attach to the bottom */
+  font-size: 16px;
 }
 
 .game-info-left h2 {
@@ -288,23 +309,27 @@ body::-webkit-scrollbar-corner {
 }
 
 .game-info-left p {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 5px;
 }
 
 .game-info-right p {
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 
 .game-info-right ul {
+  font-size: 16px;
   list-style-type: square;
   padding-left: 15px;
 }
 
 .game-info-right ul li {
-  font-size: 14px;
   margin-bottom: 10px;
+}
+
+.d {
+  color: rgb(200, 200, 200);
 }
 
 /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
@@ -610,10 +635,10 @@ body::-webkit-scrollbar-corner {
   transition: transform 0.5s ease-out; /* Smooth out the stopping motion */
 }
 
-/* Hover state that triggers the animation */
-.wave-text:hover span {
-  animation: wave-bounce 0.5s ease forwards;
-  animation-fill-mode: backwards; /* Keep the final state of the animation after hovering */
+/* Trigger wave animation only when the class 'wave-play' is added */
+.wave-play span {
+  animation: wave-bounce 0.5s forwards;
+  animation-fill-mode: forwards;
 }
 
 /* Keyframes for the bounce effect */
@@ -622,13 +647,13 @@ body::-webkit-scrollbar-corner {
     transform: translateY(0);
   }
   20% {
-    transform: translateY(-5px);
+    transform: translateY(-10%);
   }
   40% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
   60% {
-    transform: translateY(-2px);
+    transform: translateY(-5%);
   }
   100% {
     transform: translateY(0);
