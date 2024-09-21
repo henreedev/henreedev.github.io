@@ -108,6 +108,35 @@ function cycleTexts() {
   });
 }
 
+function applyWaveEffect() {
+  // Select all elements with the class 'wave-text'
+  const waveTextElements = document.querySelectorAll(".wave-text");
+
+  // Loop through each wave-text element
+  waveTextElements.forEach((waveText) => {
+    // Get the text content and split it into individual letters
+    const letters = waveText.textContent.split("");
+
+    // Clear the original content of the element
+    waveText.textContent = "";
+
+    // Wrap each letter in a <span> and append it back to the element
+    letters.forEach((letter, index) => {
+      const span = document.createElement("span");
+      span.textContent = letter;
+
+      // Add a delay to each letter to create the wave effect
+      span.style.animationDelay = `${index * 0.05}s`;
+
+      // Append the span to the container
+      waveText.appendChild(span);
+    });
+  });
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", applyWaveEffect);
+
 // Start the cycle
 cycleTexts();
 

@@ -599,3 +599,38 @@ body::-webkit-scrollbar-corner {
     border-right-color: whitesmoke; /* Final color to complete the blink */
   }
 }
+
+/* Styling for the wave text */
+.wave-text {
+  display: inline-block;
+}
+
+.wave-text span {
+  display: inline-block;
+  transition: transform 0.5s ease-out; /* Smooth out the stopping motion */
+}
+
+/* Hover state that triggers the animation */
+.wave-text:hover span {
+  animation: wave-bounce 0.5s ease forwards;
+  animation-fill-mode: backwards; /* Keep the final state of the animation after hovering */
+}
+
+/* Keyframes for the bounce effect */
+@keyframes wave-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
