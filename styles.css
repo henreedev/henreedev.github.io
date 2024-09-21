@@ -191,6 +191,15 @@ body::-webkit-scrollbar-corner {
   padding-left: 10px; /* Creates space between the border and the text */
 }
 
+.game-info-bullets-left a {
+  color: rgb(203, 200, 238);
+}
+
+.game-info-bullets-left ul {
+  padding-left: 15px;
+  list-style-type: square;
+}
+
 .game-details.active .game-info-bullets-left {
   transition: opacity 0.5s ease 1.2s, transform 0.5s ease 1.2s;
 }
@@ -237,14 +246,31 @@ body::-webkit-scrollbar-corner {
   transition: opacity 0.3s ease 0.5s, transform 0.3s ease 0.5s;
 }
 
-/* Left box for game title, link, and stats */
+/* Container for the game info */
 .game-info-left {
-  width: 30%;
-  margin-right: 20px; /* Padding between left and right boxes */
+  width: 30%; /* Initial width */
+  min-width: 30%; /* Prevent shrinking below 30% */
+  max-width: 100%; /* Don't exceed 100% of the parent's width */
+
+  /* Remove the hard height restriction */
+  height: auto; /* Let the container expand based on content */
+  /* max-height: 50vh; Set max height to 50% of viewport height */
+
   display: flex;
-  flex-direction: column; /* Vertical arrangement of items */
-  justify-content: space-between; /* Title/stats at the top, icons at the bottom */
-  height: 100%; /* Stretch to fill the container */
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  /* Handle overflow */
+  overflow-y: visible; /* Allow scrolling if content exceeds the max-height */
+  overflow-x: visible; /* Allow horizontal growth when vertically overflowing */
+}
+
+/* This ensures the container grows when overflowing vertically */
+@media (max-height: 50vh) {
+  .game-info-left {
+    width: auto; /* Let it expand beyond the 30% width */
+  }
 }
 
 /* Right box for game description and features */
@@ -281,38 +307,16 @@ body::-webkit-scrollbar-corner {
   margin-bottom: 10px;
 }
 
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
 /* Icons container at the bottom */
 .icons-container {
   display: flex;
   justify-content: center; /* Center icons horizontally */
-  gap: 20px; /* Space between icons */
-  margin-top: 20px; /* Add some space between paragraph and icons */
-}
-
-/* Individual icons styling */
-.icon-link {
-  display: block;
-  width: 40px; /* Adjust size as needed */
-  height: 40px;
-}
-
-.icon-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Ensure images maintain aspect ratio */
-}
-
-.icon-link {
-  display: block;
-  width: 40px;
-  height: 40px;
-  position: relative; /* For tooltip positioning */
-}
-
-.icon-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  gap: 0px; /* Space between icons */
+  margin-top: 0px; /* Add some space between paragraph and icons */
 }
 
 /* Disabled state */
@@ -321,24 +325,8 @@ body::-webkit-scrollbar-corner {
   cursor: not-allowed; /* Error cursor */
   opacity: 0.7;
 }
+
 .tooltip {
-  transition: opacity 0.3s ease;
-}
-/* Tooltip styling */
-.icon-link[data-disabled="true"] .tooltip {
-  pointer-events: none;
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 5px;
-  font-size: 12px;
-  white-space: nowrap;
-  border-radius: 4px;
-  margin-bottom: 5px;
-  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
@@ -346,6 +334,75 @@ body::-webkit-scrollbar-corner {
   display: block;
   opacity: 1;
 }
+
+.tooltip {
+  transition: opacity 0.3s ease;
+}
+
+.icons-container {
+  /* position: absolute; */
+  /* transform: translateX(-50%); */
+  width: 100%;
+  /* height: 100%; */
+  margin-top: 20px;
+  bottom: 0%;
+  left: 50%;
+  display: flex;
+  /* background-color: #f4f4f4; */
+  /* gap: 20px; */
+}
+
+.icons-container a {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease-out;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.icons-container .tooltip {
+  pointer-events: none;
+  position: absolute;
+  bottom: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: whitesmoke;
+  padding: 5px;
+  font-size: 13px;
+  white-space: nowrap;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.icons-container a:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto; /* Make tooltip clickable */
+}
+
+.icons-container a img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Increase the hover area to include the tooltip */
+.icons-container a:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+
+.icons-container .icon-link[data-disabled="true"]:hover {
+  cursor: not-allowed;
+}
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
 
 /* Splash background styling */
 .splash-background {
