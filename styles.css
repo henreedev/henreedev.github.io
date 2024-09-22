@@ -7,13 +7,13 @@
 
 /* Change the text highlight color */
 ::selection {
-  background-color: #ffcc00; /* Background color when text is highlighted */
+  background-color: #68beff; /* Background color when text is highlighted */
   color: #000000; /* Text color when highlighted */
 }
 
 /* For Firefox (optional, but ensures compatibility with older versions) */
 ::-moz-selection {
-  background-color: #ffcc00;
+  background-color: #68beff;
   color: #000000;
 }
 
@@ -257,7 +257,7 @@ body::-webkit-scrollbar-corner {
   background-image: url("assets/image/diagonal-pattern.png"); /* Replace with your background image */
   background-size: 100px;
   background-position: center;
-  padding: 20px;
+  padding: 0 20px;
   color: whitesmoke;
   box-sizing: border-box;
   text-align: left;
@@ -304,10 +304,14 @@ body::-webkit-scrollbar-corner {
 }
 
 .game-info-left h2 {
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
+.game-info-left h2 s {
+  font-size: 10px;
+}
 .game-info-left p {
   font-size: 16px;
   margin-bottom: 5px;
@@ -341,7 +345,7 @@ body::-webkit-scrollbar-corner {
   display: flex;
   justify-content: center; /* Center icons horizontally */
   gap: 0px; /* Space between icons */
-  margin-top: 0px; /* Add some space between paragraph and icons */
+  margin-bottom: 10px; /* Add some space between paragraph and icons */
 }
 
 /* Disabled state */
@@ -455,7 +459,7 @@ body::-webkit-scrollbar-corner {
   align-items: center;
   color: whitesmoke;
   position: relative;
-  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Full viewport height */
   width: 100%;
   background-color: #333;
   background-image: url("assets/image/footer-bg.png");
@@ -493,7 +497,8 @@ body::-webkit-scrollbar-corner {
   padding-left: 20px;
 }
 .left-column p {
-  padding-bottom: 5px;
+  padding: 10px 0;
+  font-size: 20px;
 }
 
 /* Right Column */
@@ -505,11 +510,13 @@ body::-webkit-scrollbar-corner {
 }
 
 .right-column a {
-  font-size: 1.5rem;
+  font-size: 3rem;
   color: whitesmoke;
   text-decoration: none;
+
   border: 2px solid whitesmoke;
-  padding: 10px 20px;
+  padding: 10px 30px;
+  margin-bottom: 30px;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -630,6 +637,22 @@ body::-webkit-scrollbar-corner {
   display: inline-block;
 }
 
+.word-wave-text-list {
+  display: list-item;
+}
+.word-wave-text {
+  display: inline-block;
+}
+
+.word-wave-text span {
+  display: inline-block;
+  transition: transform 0.5s ease-out; /* Smooth out the stopping motion */
+}
+.word-wave-text-list span {
+  display: inline-block;
+  transition: transform 0.5s ease-out; /* Smooth out the stopping motion */
+}
+
 .wave-text span {
   display: inline-block;
   transition: transform 0.5s ease-out; /* Smooth out the stopping motion */
@@ -647,7 +670,7 @@ body::-webkit-scrollbar-corner {
     transform: translateY(0);
   }
   20% {
-    transform: translateY(-10%);
+    transform: translateY(-15%);
   }
   40% {
     transform: translateY(0);

@@ -121,13 +121,14 @@ function applyWaveEffect() {
     waveText.textContent = "";
 
     // Wrap each letter (including spaces) in a <span> and append it back to the element
+    var factor = 0.05;
     letters.forEach((letter, index) => {
       const span = document.createElement("span");
       span.textContent = letter === " " ? "\u00A0" : letter; // Use non-breaking space for proper rendering
 
       // Add a delay to each letter to create the wave effect
-      span.style.animationDelay = `${index * 0.05}s`;
-
+      span.style.animationDelay = `${index * factor}s`;
+      factor -= 0.0001;
       // Append the span to the container
       waveText.appendChild(span);
     });
@@ -152,6 +153,66 @@ function applyWaveEffect() {
     });
   });
 }
+
+function applyWordWaveEffect() {
+  // Select all elements with the class 'wave-text'
+  const waveTextElements = document.querySelectorAll(".word-wave-text");
+  const otherElements = document.querySelectorAll(".word-wave-text-list");
+
+  // Combine both NodeLists into one
+  const allWaveTextElements = [...waveTextElements, ...otherElements];
+  // Loop through each wave-text element
+  allWaveTextElements.forEach((waveText) => {
+    // Get the text content and split it into words
+    const words = waveText.textContent.split(" ");
+
+    // Clear the original content of the element
+    waveText.textContent = "";
+    var factor = 0.05;
+    // Loop through each word
+    words.forEach((word, wordIndex) => {
+      // Create a span to wrap the entire word
+      const wordSpan = document.createElement("span");
+      wordSpan.textContent = word; // Set the word text
+
+      // Add a delay to each word to create the wave effect
+      wordSpan.style.animationDelay = `${wordIndex * factor}s`; // Adjust delay as needed
+      // factor -= 0.001;
+      wordSpan.classList.add("word"); // Add a class to identify word spans
+
+      // Append the word span to the container
+      waveText.appendChild(wordSpan);
+
+      // Add a space after each word (but not after the last word)
+      if (wordIndex < words.length - 1) {
+        waveText.appendChild(document.createTextNode("\u00A0")); // Non-breaking space to maintain spacing
+      }
+    });
+
+    var waiting = false;
+    // Add hover listener to add the 'wave-play' class
+    waveText.addEventListener("mouseenter", () => {
+      if (!waiting) {
+        waveText.classList.add("wave-play");
+      }
+    });
+
+    // Add animationend listener to remove the 'wave-play' class after animation finishes
+    const wordSpans = waveText.querySelectorAll("span.word");
+    wordSpans.forEach((wordSpan, index) => {
+      wordSpan.addEventListener("animationend", () => {
+        waiting = true;
+        if (index === wordSpans.length - 1) {
+          waveText.classList.remove("wave-play");
+          // waiting = false;
+        }
+      });
+    });
+  });
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", applyWordWaveEffect);
 
 // Call the function when the page loads
 document.addEventListener("DOMContentLoaded", applyWaveEffect);
