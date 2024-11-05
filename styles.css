@@ -268,6 +268,11 @@ body::-webkit-scrollbar-corner {
   transition: opacity 0.3s ease 0.5s, transform 0.3s ease 0.5s;
 }
 
+.game-info-left[data-opaque="true"],
+.game-info-right[data-opaque="true"] {
+  background-image: url("assets/image/diagonal-pattern-opaque.png");
+}
+
 /* Container for the game info */
 .game-info-left {
   width: calc(20vw + ((1920px - 100vw) / 5));
@@ -421,11 +426,6 @@ body::-webkit-scrollbar-corner {
 .icons-container .icon-link[data-disabled="true"]:hover {
   cursor: not-allowed;
 }
-/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
-/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
-/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
-/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
-/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
 
 /* Splash background styling */
 .splash-background {
