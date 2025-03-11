@@ -7,6 +7,32 @@ gameIcons.forEach((icon) => {
   });
 });
 
+
+//region Dynamically populating the HTML with JS instead of hardcoding it.
+document.addEventListener("DOMContentLoaded", () => {
+  // Array holding the titles for each game in order.
+  const gameTitles = [
+    "Scale Mail",
+    "Suntower",
+    "Nullify Light",
+    "Kanjou Meisou",
+    "Final Farm"
+  ];
+  
+  // Select only the title elements using the 'game-title' class.
+  const titleElements = document.querySelectorAll(".game-title");
+
+  titleElements.forEach((titleEl, index) => {
+    // You can also use the data-index attribute for extra precision if needed.
+    // For example: const idx = titleEl.getAttribute("data-index");
+    // and then use idx instead of index.
+    titleEl.textContent = gameTitles[index];
+  });
+});
+//endregion Dynamically populating the HTML with JS instead of hardcoding it.
+
+
+
 function selectThisGame(icon, shouldScroll = true) {
   if (shouldScroll) {
     scrollToGamesSection();
