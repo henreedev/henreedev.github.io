@@ -127,16 +127,16 @@ body::-webkit-scrollbar-corner {
 
 .play-button {
   position: absolute;
+  font-family: "PixelFont", sans-serif;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 48px;  /* Adjust size */
-  background: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.0);  /* Semi-transparent background */
   color: white;
   border: none;
-  padding: 10px;
+  padding: 30px;
   cursor: pointer;
-  border-radius: 50%;
   z-index: 10;
 }
 
