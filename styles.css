@@ -95,7 +95,7 @@ body::-webkit-scrollbar-corner {
   background-position: center;
   display: flex;
   justify-content: flex-start;
-  align-items:center;
+  align-items: center;
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 40px;
@@ -122,7 +122,6 @@ body::-webkit-scrollbar-corner {
   justify-content: center; /* Center the video */
   align-items: center; /* Center the video */
   overflow: hidden; /* Prevent the video from overflowing */
-
 }
 
 .video-wrapper video {
@@ -144,8 +143,8 @@ body::-webkit-scrollbar-corner {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 48px;  /* Adjust size */
-  background: rgba(0, 0, 0, 0.0);  /* Semi-transparent background */
+  font-size: 48px; /* Adjust size */
+  background: rgba(0, 0, 0, 0); /* Semi-transparent background */
   color: white;
   border: none;
   padding: 30px;
@@ -276,8 +275,8 @@ body::-webkit-scrollbar-corner {
   opacity: 0;
   visibility: hidden;
   z-index: 0;
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   align-items: center;
   transition: opacity 0.5s ease, visibility 0s ease 0.5s; /* Delay visibility change */
 }
@@ -454,8 +453,6 @@ body::-webkit-scrollbar-corner {
   margin-bottom: 10px;
 }
 
-
-
 /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
 /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
 /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
@@ -559,7 +556,7 @@ body::-webkit-scrollbar-corner {
   background-position: center;
   /* z-index: -1; */
 }
-  
+
 .game-info {
   position: absolute;
   top: 50%;
@@ -631,7 +628,7 @@ body::-webkit-scrollbar-corner {
 
 /* Headshot Image Styling */
 .headshot {
-  width: calc(300px + 10%); /* Adjust size as needed */
+  width: calc(200px + 10%); /* Adjust size as needed */
   height: auto;
   border-radius: 30%; /* Makes the image circular */
   margin-bottom: 50px; /* Space between the image and the button */
@@ -735,8 +732,6 @@ body::-webkit-scrollbar-corner {
   padding-bottom: 10px; /* Increase the clickable area between icon and tooltip */
 }
 
-
-
 .typing-cursor {
   white-space: nowrap;
   border-right: 7px solid;
@@ -757,7 +752,6 @@ body::-webkit-scrollbar-corner {
     border-right-color: whitesmoke; /* Final color to complete the blink */
   }
 }
-
 
 /* Styling for the wave text */
 .wave-text {
@@ -852,9 +846,8 @@ body::-webkit-scrollbar-corner {
   gap: 20px;
 }
 
-
-
-.modal-left, .modal-right {
+.modal-left,
+.modal-right {
   flex: 1;
   min-width: 300px;
   display: flex;
@@ -882,28 +875,27 @@ body::-webkit-scrollbar-corner {
   margin-bottom: 10px;
 }
 
-
 .modal-left p {
   margin-bottom: 15px;
   margin-left: 20px;
   font-size: 1.25em;
-  color:rgb(217, 217, 217)
+  color: rgb(217, 217, 217);
 }
 
-.modal-left ul, .modal-right ul {
+.modal-left ul,
+.modal-right ul {
   list-style-type: square; /* Ensures bullets appear */
   padding-left: 20px; /* Adds space for bullets */
 }
 
-.modal-left ul li, .modal-right ul li {
+.modal-left ul li,
+.modal-right ul li {
   margin-bottom: 8px;
   font-size: 1.3em;
   color: rgb(211, 211, 211);
   padding-left: 10px;
   position: relative;
 }
-
-
 
 .modal-video {
   width: 80%;
@@ -912,7 +904,8 @@ body::-webkit-scrollbar-corner {
   display: block;
   margin: 0 auto 15px;
   /* margin: 0 0 15px; */
-  transition: transform 0.3s ease-in-out, border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out, border-color 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out;
 }
 
 .modal-video:hover {
@@ -978,7 +971,6 @@ body::-webkit-scrollbar-corner {
 
 .modal-content::-webkit-scrollbar-thumb {
   background: #fdfdfd;
-  
 }
 
 .modal-content::-webkit-scrollbar-button {
@@ -1011,8 +1003,6 @@ body::-webkit-scrollbar-corner {
   color: #333;
 }
 
-
-
 .game-modal.fade-in {
   opacity: 1;
   visibility: visible; /* Make it visible */
@@ -1024,4 +1014,3 @@ body::-webkit-scrollbar-corner {
   /* visibility: hidden; Hide it after fading */
   transition: opacity 0.5s ease-out, visibility 0s linear 0.5s; /* Delay visibility change after fade */
 }
-
